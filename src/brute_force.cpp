@@ -23,7 +23,7 @@ BruteForce::BruteForce(char *chars, std::function < void (char *) > cllbck)
 void BruteForce::start_left(unsigned int length)
 {
 	unsigned int n_chars = strlen(data);
-	auto harmonic = std::unique_ptr < HarmonicInt[] > (new HarmonicInt[length]);
+	auto harmonic = std::unique_ptr < BruteForceInt[] > (new BruteForceInt[length]);
 
 	for (int i = length - 2; i >= 0; i--)
 	{
@@ -36,7 +36,7 @@ void BruteForce::start_left(unsigned int length)
 	harmonic[i].max = n_chars - 1;
 	harmonic[i].next = nullptr;
 
-	HarmonicInt & num = harmonic[0];
+	BruteForceInt & num = harmonic[0];
 
 	char entry[length + 1] = { 0 };
 	do
@@ -55,7 +55,7 @@ void BruteForce::start_left(unsigned int length)
 void BruteForce::start_right(unsigned int length)
 {
 	unsigned int n_chars = strlen(data);
-	auto harmonic = std::unique_ptr < HarmonicInt[] > (new HarmonicInt[length]);
+	auto harmonic = std::unique_ptr < BruteForceInt[] > (new BruteForceInt[length]);
 
 	for (int i = length - 1; i > 0; i--)
 	{
@@ -67,7 +67,7 @@ void BruteForce::start_right(unsigned int length)
 	harmonic[0].max = n_chars - 1;
 	harmonic[0].next = nullptr;
 
-	HarmonicInt & num = harmonic[length - 1];
+  BruteForceInt & num = harmonic[length - 1];
 
 	char entry[length + 1] = { 0 };
 	do
@@ -81,7 +81,10 @@ void BruteForce::start_right(unsigned int length)
 	while (num--);
 }
 
- int main()
+
+
+
+int main()
 {
 	BruteForce bf("0123456789",
           [](auto str)
@@ -93,3 +96,10 @@ void BruteForce::start_right(unsigned int length)
 	bf.start_right(2); // from 00 through 99
 	return 0;
 }
+
+
+
+
+
+
+

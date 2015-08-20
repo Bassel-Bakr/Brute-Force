@@ -7,18 +7,17 @@ class BruteForce
 	  std::function < void (char *) > callback;
 
   public:
-	  BruteForce(char *chars,
-                  std::function<void(char*)> callback);
-	
-  void start_left(unsigned int len);
+	  BruteForce(char *chars, std::function < void (char *) > callback);
+
+	void start_left(unsigned int len);
 	void start_right(unsigned int len);
 	unsigned long long max(unsigned int len);
- };
+};
 
-typedef struct HarmonicInt
+typedef struct BruteForceInt
 {
 	unsigned int value, max;
-	HarmonicInt *next, *prev;
+	BruteForceInt *next, *prev;
 
 	bool operator++()
 	{
@@ -52,7 +51,7 @@ typedef struct HarmonicInt
 			return false;
 	}
 
-	~HarmonicInt()
+	~BruteForceInt()
 	{
 	}
 };
